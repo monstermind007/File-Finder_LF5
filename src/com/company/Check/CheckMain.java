@@ -28,8 +28,5 @@ public class CheckMain {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-
-
-
+    }
 }
