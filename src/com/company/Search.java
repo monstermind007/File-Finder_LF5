@@ -2,41 +2,45 @@ package com.company;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.nio.file.*;
 
 
 public class Search {
-    public static void In(String directoryName ) {
-        File dir = new File(directoryName);
-        String[] children = dir.list();
 
-        if (children == null) {
-            System.out.println("does not exist or is not a directory");
-        } else {
-            int another = 0;
-            int pdf = 0;
-            for (int i = 0; i < children.length; i++) {
+    public static void lookInAll (String path, String type ){
+        ArrayList<File> files = getPaths(new File(path),
+                new ArrayList<File>());
 
-                if ( (children[i] != null) && children[i].endsWith( ".pdf")) {
-                    String filename = children[i];
-                    System.out.println(filename);
-                    pdf++;
-                } else {
-                    another++;
+        if(files == null  ) return;
+        try {
+            for (int i = 0; i < files.size(); i++){
+                String h = String.valueOf(files.get(i));
+                boolean result = Files.isHidden(Path.of(h)); // schaut ob es sich um eine versteckten Datei handelt, wird jedoch nicht verwendet
+
+                if ( h.endsWith(type)) {
+                    allOut(files.get(i).getCanonicalPath(), type );
                 }
             }
-            System.out.println("Es existieren " + another + " ander Objekte in diesem Ordner");
-            System.out.println("Davon sind " + pdf + " PDF Datein");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    static void showDir(int indent, File file) throws IOException {
-        for (int i = 0; i < indent; i++) System.out.print('-');
-        System.out.println(file.getName());
-        if (file.isDirectory()) {
-            File[] files = file.listFiles();
-            for (int i = 0; i < files.length; i++){
-                showDir(indent + 4, files[i]);
+    private static ArrayList<File> getPaths(File file, ArrayList<File> list) {
+        if (file == null || list == null || !file.isDirectory())
+            return null;
+        File[] fileArr = file.listFiles();
+        for (File f : fileArr) {
+            if (f.isDirectory()) {
+                getPaths(f, list);
             }
+            list.add(f);
         }
+        return list;
+    }
+
+    private static void allOut(String path, String type) {
+        System.out.println(path);
     }
 }
