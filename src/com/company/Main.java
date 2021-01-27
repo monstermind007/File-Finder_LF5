@@ -1,5 +1,6 @@
 package com.company;
 
+import java.security.PublicKey;
 
 public class Main {
 
@@ -8,5 +9,3 @@ public class Main {
         //Kann paar Sekunden dauern (Ab C:\Users\techc\ löbt es bei mir )
     }
 }
-
-
