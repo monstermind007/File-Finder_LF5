@@ -8,22 +8,25 @@ import java.util.ArrayList;
 public class Search {
 
     public static void lookInAll(String path, String type) {
+        if(path.endsWith(type)){
+            allOut(path, type);
+        }else{
+            ArrayList<File> files = getPaths(new File(path),
+                    new ArrayList<File>());
 
-        ArrayList < File > files = getPaths(new File(path),
-                new ArrayList < File > ());
+            if (files == null) return;
+            try {
+                for (int i = 0; i < files.size(); i++) {
+                    String h = String.valueOf(files.get(i));
+                    //boolean result = Files.isHidden(Path.of(h)); // schaut ob es sich um eine versteckten Datei handelt, wird jedoch nicht verwendet
 
-        if (files == null) return;
-        try {
-            for (int i = 0; i < files.size(); i++) {
-                String h = String.valueOf(files.get(i));
-                //boolean result = Files.isHidden(Path.of(h)); // schaut ob es sich um eine versteckten Datei handelt, wird jedoch nicht verwendet
-
-                if (h.endsWith(type)) {
-                    allOut(files.get(i).getCanonicalPath(), type);
+                    if (h.endsWith(type)) {
+                        allOut(files.get(i).getCanonicalPath(), type);
+                    }
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
