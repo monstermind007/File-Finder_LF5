@@ -27,6 +27,6 @@ public class ReplaceFileExtension {
     }
 
     public static void main(String args[]) throws Exception {
-        System.out.println(ReplaceFileExtension.renameFileExtension("E:/Testdatei.pdf", "DuHurensohn"));
+        System.out.println(ReplaceFileExtension.renameFileExtension("E:/Testdatei.pdf", "##"));
     }
 }
