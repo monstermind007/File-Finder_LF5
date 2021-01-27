@@ -53,4 +53,8 @@ public class GUI {
         frame.pack();
         frame.setVisible(true);
     }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }
