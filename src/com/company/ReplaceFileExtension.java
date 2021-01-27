@@ -21,12 +21,12 @@ public class ReplaceFileExtension {
 
     //Schleife -- Ermittelt aktuelle Endung und speichert sie in den String aktuelleEndung
     public static String getFileExtension(String f) {
-        String ext = "";
+        String endung = "";
         int i = f.lastIndexOf('.');
         if (i > 0 && i < f.length() - 1) {
-            ext = f.substring(i + 1);
+            endung = f.substring(i + 1);
         }
-        return ext;
+        return endung;
     }
 
     //Main Methode
