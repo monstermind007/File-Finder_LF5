@@ -20,3 +20,4 @@ public class ReplaceFileExtension {
         System.out.println(ReplaceFileExtension.renameFileExtension("E:/Testdatei.pdf", "##"));
     }
 }
+
