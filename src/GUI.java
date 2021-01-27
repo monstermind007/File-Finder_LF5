@@ -7,34 +7,18 @@ import java.io.File;
 public class GUI {
     private JButton button1;
     private JPanel panel1;
-    private JButton button2;
+    private JList list1;
+    private JList list2;
 
     public GUI() {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fc = new JFileChooser();
-                fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
                 fc.setDialogTitle("Select a Directory");
                 fc.setAcceptAllFileFilterUsed(false);
                 FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG and PDF files", "png", "pdf");
-                fc.addChoosableFileFilter(filter);
-
-                int returnValue = fc.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fc.getSelectedFile();
-                    System.out.println(selectedFile.getAbsolutePath());
-                }
-            }
-        });
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser fc = new JFileChooser();
-                fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                fc.setDialogTitle("Select a file");
-                fc.setAcceptAllFileFilterUsed(false);
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG or PDF files", "png", "pdf");
                 fc.addChoosableFileFilter(filter);
 
                 int returnValue = fc.showOpenDialog(null);
@@ -52,9 +36,5 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }
