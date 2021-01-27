@@ -2,43 +2,38 @@ package com.company;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class Search {
 
     public static void lookInAll(String path, String type) {
-
-
-
         JSONObject pfade = new JSONObject();
         JSONObject main = new JSONObject();
         if(path.endsWith(type)){
-            allOut(path, type);
+            allOut(path);
         }else{
             ArrayList<File> files = getPaths(new File(path),
-                    new ArrayList<File>());
+                    new ArrayList<>());
 
             if (files == null) return;
             try {
                 int id = 0;
-                for (int i = 0; i < files.size(); i++) {
-                    String h = String.valueOf(files.get(i));
+                for (File file : files) {
+                    String h = String.valueOf(file);
                     //boolean result = Files.isHidden(Path.of(h)); // schaut ob es sich um eine versteckten Datei handelt, wird jedoch nicht verwendet
 
                     if (h.endsWith(type)) {
-                        String pfad = files.get(i).getCanonicalPath();
+                        String pfad = file.getCanonicalPath();
                         boolean damage = Check.damaged(pfad);
-                        if(damage == true) {
+                        if (damage) {
 
                             pfade.put(String.valueOf(id), pfad);
                             id++;
                         }
-                        allOut(files.get(i).getCanonicalPath(), type);
+                        allOut(file.getCanonicalPath());
                     }
                 }
             } catch (IOException e) {
@@ -46,7 +41,6 @@ public class Search {
                 System.out.println("Fehler 1");
             }
         }
-
         JSONArray listenName = new JSONArray();
         listenName.put(pfade);
         main.put("einträge", listenName);
@@ -58,11 +52,11 @@ public class Search {
             System.out.println("JSON Schreibfehler");
         }
     }
-
     private static ArrayList < File > getPaths(File file, ArrayList < File > list) {
         if (file == null || list == null || !file.isDirectory())
             return null;
         File[] fileArr = file.listFiles();
+        assert fileArr != null;
         for (File f: fileArr) {
             try {
                 if (f.isDirectory()) { // try exept testen
@@ -78,7 +72,7 @@ public class Search {
     }
     public static int hi;
 
-    private static void allOut(String path, String type) {
+    private static void allOut(String path) {
         hi = hi + 1;
         System.out.println(hi + "---" + path);
         System.out.println(Check.damaged(path));
