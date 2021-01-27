@@ -8,9 +8,11 @@ public class ReplaceFileExtension {
         String ziel;
         String aktuelleEndung = getFileExtension(datei);
 
+        //Überprüft ob die Datei bereits die neue Endung hat.
         if (aktuelleEndung.equals("")) {
             ziel = datei + "." + neueEndung;
         }
+        //Wenn nicht dann wird die Endung geändert.
         else {
             ziel = datei.replaceFirst(Pattern.quote("." + aktuelleEndung) + "$", Matcher.quoteReplacement("." + neueEndung));
         }
