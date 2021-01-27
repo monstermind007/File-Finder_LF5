@@ -1,4 +1,5 @@
 package com.company;
+
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,28 +7,13 @@ import java.util.regex.Pattern;
 public class ReplaceFileExtension {
     public static boolean renameFileExtension(String datei, String neueEndung) {
         String ziel;
-        String aktuelleEndung = getFileExtension(datei);
+        String aktuelleEndung = "pdf";
 
-        //Überprüft ob die Datei zu beginn überhaupt eine Endung besitzt
-        if (aktuelleEndung.equals("")) {
-            ziel = datei + "." + neueEndung;
-        }
-        //Besitzt die Datei eine Endung die nicht der neuen entspricht wird diese ersetzt
-        else {
-            ziel = datei.replaceFirst(Pattern.quote("." + aktuelleEndung) + "$", Matcher.quoteReplacement("." + neueEndung));
-        }
+        //Ändert die Endung
+        ziel = datei.replaceFirst(Pattern.quote("." + aktuelleEndung) + "$", Matcher.quoteReplacement("." + neueEndung));
         return new File(datei).renameTo(new File(ziel));
     }
 
-    //Schleife -- Ermittelt aktuelle Endung und speichert sie in den String aktuelleEndung
-    public static String getFileExtension(String f) {
-        String endung = "";
-        int i = f.lastIndexOf('.');
-        if (i > 0 && i < f.length() - 1) {
-            endung = f.substring(i + 1);
-        }
-        return endung;
-    }
 
     //Main Methode
     public static void main(String args[]) throws Exception {
