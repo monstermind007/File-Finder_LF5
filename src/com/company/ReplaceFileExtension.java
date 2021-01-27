@@ -19,6 +19,7 @@ public class ReplaceFileExtension {
         return new File(datei).renameTo(new File(ziel));
     }
 
+    //Schleife -- Ermittelt aktuelle Endung und speichert sie in den String aktuelleEndung
     public static String getFileExtension(String f) {
         String ext = "";
         int i = f.lastIndexOf('.');
@@ -28,6 +29,7 @@ public class ReplaceFileExtension {
         return ext;
     }
 
+    //Main Methode
     public static void main(String args[]) throws Exception {
         System.out.println(ReplaceFileExtension.renameFileExtension("E:/Testdatei.pdf", "##"));
     }
