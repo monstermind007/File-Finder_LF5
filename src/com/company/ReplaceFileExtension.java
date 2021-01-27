@@ -12,7 +12,7 @@ public class ReplaceFileExtension {
         if (aktuelleEndung.equals("")) {
             ziel = datei + "." + neueEndung;
         }
-        //Wenn nicht dann wird die Endung geändert.
+        //Besitzt die Datei eine Endung die nicht der neuen entspricht wird diese ersetzt
         else {
             ziel = datei.replaceFirst(Pattern.quote("." + aktuelleEndung) + "$", Matcher.quoteReplacement("." + neueEndung));
         }
