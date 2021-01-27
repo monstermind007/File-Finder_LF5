@@ -8,7 +8,7 @@ public class ReplaceFileExtension {
         String ziel;
         String aktuelleEndung = getFileExtension(datei);
 
-        //Überprüft ob die Datei bereits die neue Endung hat.
+        //Überprüft ob die Datei zu beginn überhaupt eine Endung besitzt
         if (aktuelleEndung.equals("")) {
             ziel = datei + "." + neueEndung;
         }
