@@ -30,13 +30,13 @@ public class new_GUI {
             int returnValue = fc.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fc.getSelectedFile();
-                System.out.println(selectedFile.getAbsolutePath());
+                System.out.println(selectedFile.toString());
             }
 
             // Test
             DefaultListModel Test = new DefaultListModel<>();
-            Test.addElement(fc.getSelectedFile());
-            list3.setModel(Test);
+            Test.addElement(fc.getSelectedFile().toString());
+            list2.setModel(Test);
 
 
     }
