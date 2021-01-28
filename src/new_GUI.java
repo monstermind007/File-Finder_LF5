@@ -21,7 +21,7 @@ public class new_GUI {
 
     private void button1ActionPerformed(ActionEvent e) {
             JFileChooser fc = new JFileChooser();
-            fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+            fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             fc.setDialogTitle("Select a Directory");
             fc.setAcceptAllFileFilterUsed(false);
             FileNameExtensionFilter filter = new FileNameExtensionFilter("PNG and PDF files", "png", "pdf");
