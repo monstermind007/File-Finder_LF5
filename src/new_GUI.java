@@ -15,6 +15,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author unknown
  */
 public class new_GUI {
+
     public new_GUI() {
         initComponents();
     }
@@ -30,13 +31,14 @@ public class new_GUI {
             int returnValue = fc.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = fc.getSelectedFile();
-                System.out.println(selectedFile.toString());
             }
 
             // Test
             DefaultListModel Test = new DefaultListModel<>();
-            Test.addElement(fc.getSelectedFile().toString());
+            Test.addElement(fc.getSelectedFile());
             list2.setModel(Test);
+
+            String test = fc.getSelectedFile().toString();
 
 
     }
@@ -61,13 +63,13 @@ public class new_GUI {
         {
             panel1.setBackground(new Color(46, 49, 50));
             panel1.setMaximumSize(new Dimension(1006, 523));
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
-            swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
-            .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
-            ,java.awt.Font.BOLD,12),java.awt.Color.red),panel1. getBorder
-            ()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
-            .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
-            ();}});
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
+            swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border
+            . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067"
+            ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,panel1. getBorder
+            ( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java
+            .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException
+            ( ); }} );
 
             //---- label1 ----
             label1.setText("File-Finder");
@@ -77,18 +79,18 @@ public class new_GUI {
 
             //---- label3 ----
             label3.setText("text");
-            label3.setIcon(new ImageIcon(getClass().getResource("/file (1).png")));
+            label3.setIcon(new ImageIcon(getClass().getResource("/images/file (1).png")));
             label3.setForeground(Color.white);
             label3.setBackground(new Color(46, 49, 50));
 
             //---- label4 ----
             label4.setText("text");
-            label4.setIcon(new ImageIcon(getClass().getResource("/file (2).png")));
+            label4.setIcon(new ImageIcon(getClass().getResource("/images/file (2).png")));
             label4.setBackground(new Color(46, 49, 50));
 
             //---- label5 ----
             label5.setText("text");
-            label5.setIcon(new ImageIcon(getClass().getResource("/36636378 (2) (1).png")));
+            label5.setIcon(new ImageIcon(getClass().getResource("/images/36636378 (2) (1).png")));
             label5.setBackground(new Color(46, 49, 50));
 
             //---- list2 ----
@@ -202,7 +204,7 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    private JPanel panel1;
+    protected JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;
@@ -216,11 +218,4 @@ public class new_GUI {
     private JLabel label6;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame("File-Finder");
-        frame.setContentPane(new new_GUI().panel1);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
 }

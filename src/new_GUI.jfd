@@ -20,20 +20,20 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "text"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/file (1).png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/file (1).png" )
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 				"background": new java.awt.Color( 46, 49, 50, 255 )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "text"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/file (2).png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/file (2).png" )
 				"background": new java.awt.Color( 46, 49, 50, 255 )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
 				"text": "text"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/36636378 (2) (1).png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/36636378 (2) (1).png" )
 				"background": new java.awt.Color( 46, 49, 50, 255 )
 			} )
 			add( new FormComponent( "javax.swing.JList" ) {
