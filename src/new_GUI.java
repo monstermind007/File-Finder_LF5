@@ -35,6 +35,7 @@ public class new_GUI {
             int returnValue = fc.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedFile = fc.getSelectedFile() +"\\";
+                button3.addActionListener(e1 -> Search.lookInAll(selectedFile));
 
                 DefaultListModel Test = new DefaultListModel<>();
                 Test.addElement(selectedFile);
