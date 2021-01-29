@@ -66,6 +66,7 @@ new FormModel {
 				"background": new java.awt.Color( 76, 80, 82, 255 )
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 				"focusPainted": false
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox1"
@@ -74,6 +75,7 @@ new FormModel {
 				"background": new java.awt.Color( 46, 49, 50, 255 )
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 				"focusPainted": false
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox1ActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
