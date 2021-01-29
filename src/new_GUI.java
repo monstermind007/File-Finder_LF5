@@ -35,13 +35,15 @@ public class new_GUI {
             int returnValue = fc.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedFile = fc.getSelectedFile() +"\\";
-                button3.addActionListener(e1 -> Search.lookInAll(selectedFile));
+                button3.addActionListener(e1 -> Search.lookInAll("C:\\Users\\kaiha_wo2fl1k\\OneDrive\\BFE-17","pdf"));
 
                 DefaultListModel Test = new DefaultListModel<>();
                 Test.addElement(selectedFile);
                 list2.setModel(Test);
 
             }
+            String test = new_GUI.getSelectedFile();
+            Search.lookInAll(test, "pdf");
     }
 
     private void button2ActionPerformed(ActionEvent e) {
@@ -226,7 +228,7 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    private JPanel panel1;
+    JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;

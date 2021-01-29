@@ -10,8 +10,5 @@ public class Main {
         frame.setVisible(true);
 
 
-        // Ben
-        String test = new_GUI.getSelectedFile();
-        Search.lookInAll(test, "pdf");
     }
 }
