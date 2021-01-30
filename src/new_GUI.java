@@ -1,9 +1,5 @@
-import com.company.ReplaceFileExtension;
-import com.company.Search;
-
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
