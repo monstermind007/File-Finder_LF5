@@ -7,7 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
 public class Search {
+
+    public static int hi;
+    public static String[] PathArray = new String[200];
 
     public static void lookInAll(String path, String type) {
         JSONObject pfade = new JSONObject();
@@ -32,7 +36,10 @@ public class Search {
 
                             pfade.put(String.valueOf(id), pfad);
                             id++;
+
                         }
+                        hi++;
+                        PathArray[hi] = file.getCanonicalPath();
                         allOut(file.getCanonicalPath());
                     }
                 }
@@ -51,7 +58,10 @@ public class Search {
         } catch (IOException e) {
             System.out.println("JSON Schreibfehler");
         }
+
     }
+
+
     private static ArrayList < File > getPaths(File file, ArrayList < File > list) {
         if (file == null || list == null || !file.isDirectory())
             return null;
@@ -70,11 +80,18 @@ public class Search {
         }
         return list;
     }
-    public static int hi;
 
-    private static void allOut(String path) {
-        hi = hi + 1;
+
+
+    public static String allOut(String path) {
         System.out.println(hi + "---" + path);
         System.out.println(Check.damaged(path));
+        return path;
     }
+
+
+    public static String[] getArray(){
+        return PathArray;
+    }
+
 }

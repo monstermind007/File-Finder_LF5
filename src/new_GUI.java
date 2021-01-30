@@ -45,9 +45,16 @@ public class new_GUI {
 
                  */
 
-                // List-Panel-Right
+
+
+                // List-Panel-Righ
+
                 DefaultListModel Test = new DefaultListModel<>();
-                Test.addElement(new_GUI.getSelectedDirectory()); // <-- Hier müssen alle funktionierende Files rein aber wie?
+                String test = new_GUI.getSelectedDirectory();
+                Search.lookInAll(test, "pdf");
+                for (int k = 0; k < Search.PathArray.length; k++){
+                    Test.addElement(Search.PathArray[k]);
+                }
                 list2.setModel(Test);
 
                 // List-Panel-Left
@@ -57,9 +64,7 @@ public class new_GUI {
                 list2.setModel(Test); */
 
             }
-            String test = new_GUI.getSelectedDirectory();
-            Search.lookInAll(test, "pdf");
-            ReplaceFileExtension.renameDamaged("C:\\Users\\kaiha_wo2fl1k\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
+            ReplaceFileExtension.renameDamaged("C:\\Users\\Monstermind007\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
 
     }
 
