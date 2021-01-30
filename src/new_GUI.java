@@ -39,10 +39,22 @@ public class new_GUI {
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedDirectory = fc.getSelectedFile() +"\\";
 
-                // Panel-Rechts
+                /*
+
+                MICHEL
+
+                 */
+
+                // List-Panel-Right
+                DefaultListModel Test = new DefaultListModel<>();
+                Test.addElement(new_GUI.getSelectedDirectory()); // <-- Hier müssen alle funktionierende Files rein aber wie?
+                list2.setModel(Test);
+
+                // List-Panel-Left
+                /*
                 DefaultListModel Test = new DefaultListModel<>();
                 Test.addElement(Search.hi);
-                list2.setModel(Test);
+                list2.setModel(Test); */
 
             }
             String test = new_GUI.getSelectedDirectory();
