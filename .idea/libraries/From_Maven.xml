@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="MigLayout">
+  <library name="From Maven">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/miglayout-swing.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/miglayout-core.jar!/" />

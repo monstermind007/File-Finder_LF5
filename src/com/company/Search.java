@@ -1,3 +1,5 @@
+package com.company;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,8 +48,10 @@ public class Search {
     }
     public static int hi;
 
-    private static void allOut(String path, String type) {
+    public static void allOut(String path, String type) {
         hi = hi + 1;
         System.out.println(hi + "---" + path);
     }
+
+
 }

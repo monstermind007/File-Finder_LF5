@@ -1,5 +1,9 @@
+import com.company.ReplaceFileExtension;
+import com.company.Search;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -14,10 +18,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author unknown
  */
 public class new_GUI {
-    public static String selectedFile;
+    public static String selectedDirectory;
 
-    public static String getSelectedFile() {
-        return selectedFile;
+    public static String getSelectedDirectory() {
+        return selectedDirectory;
     }
 
     public new_GUI() {
@@ -34,16 +38,18 @@ public class new_GUI {
 
             int returnValue = fc.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
-                selectedFile = fc.getSelectedFile() +"\\";
-                button3.addActionListener(e1 -> Search.lookInAll("C:\\Users\\kaiha_wo2fl1k\\OneDrive\\BFE-17","pdf"));
+                selectedDirectory = fc.getSelectedFile() +"\\";
 
                 DefaultListModel Test = new DefaultListModel<>();
-                Test.addElement(selectedFile);
+                Test.addElement(Search.hi);
                 list2.setModel(Test);
 
             }
-            String test = new_GUI.getSelectedFile();
+            String test = new_GUI.getSelectedDirectory();
             Search.lookInAll(test, "pdf");
+
+            // ReplaceFileExtension.renameDamaged("C:\\Users\\kaiha_wo2fl1k\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
+
     }
 
     private void button2ActionPerformed(ActionEvent e) {

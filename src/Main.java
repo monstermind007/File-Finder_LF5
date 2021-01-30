@@ -1,3 +1,5 @@
+import com.company.ReplaceFileExtension;
+
 import javax.swing.*;
 
 public class Main {
@@ -8,7 +10,5 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
-
     }
 }
