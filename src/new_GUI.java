@@ -1,3 +1,4 @@
+import com.company.ReplaceFileExtension;
 import com.company.Search;
 
 import java.awt.*;
@@ -38,6 +39,7 @@ public class new_GUI {
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedDirectory = fc.getSelectedFile() +"\\";
 
+                // Panel-Rechts
                 DefaultListModel Test = new DefaultListModel<>();
                 Test.addElement(Search.hi);
                 list2.setModel(Test);
@@ -45,8 +47,7 @@ public class new_GUI {
             }
             String test = new_GUI.getSelectedDirectory();
             Search.lookInAll(test, "pdf");
-
-            // ReplaceFileExtension.renameDamaged("C:\\Users\\kaiha_wo2fl1k\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
+            ReplaceFileExtension.renameDamaged("C:\\Users\\kaiha_wo2fl1k\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
 
     }
 
@@ -225,7 +226,7 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    private JPanel panel1;
+    public JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;
