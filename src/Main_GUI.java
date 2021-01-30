@@ -2,7 +2,7 @@ import com.company.ReplaceFileExtension;
 
 import javax.swing.*;
 
-public class Main {
+public class Main_GUI {
 
     public static void main(String[] args){
         JFrame frame = new JFrame("File-Finder");

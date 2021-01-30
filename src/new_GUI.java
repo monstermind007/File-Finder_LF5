@@ -78,18 +78,17 @@ public class new_GUI {
         checkBox1 = new JCheckBox();
         label2 = new JLabel();
         label6 = new JLabel();
-        button3 = new JButton();
 
         //======== panel1 ========
         {
             panel1.setBackground(new Color(46, 49, 50));
             panel1.setMaximumSize(new Dimension(1006, 523));
-            panel1.setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
-            border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER
-            ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font
-            . BOLD ,12 ) ,java . awt. Color .red ) ,panel1. getBorder () ) ); panel1. addPropertyChangeListener(
-            new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r"
-            .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
+            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+            .BOLD ,12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
+            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- label1 ----
             label1.setText("File-Finder");
@@ -157,9 +156,6 @@ public class new_GUI {
             label6.setText("Working files*");
             label6.setForeground(Color.white);
 
-            //---- button3 ----
-            button3.setText("text");
-
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
@@ -177,9 +173,7 @@ public class new_GUI {
                                 .addComponent(label4, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(button1, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
-                                .addComponent(button3)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE))
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(label3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -211,8 +205,7 @@ public class new_GUI {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label4)
-                            .addComponent(button1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button3))
+                            .addComponent(button1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
                         .addGap(13, 13, 13)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(button2)
@@ -232,7 +225,7 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    JPanel panel1;
+    private JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;
@@ -244,7 +237,6 @@ public class new_GUI {
     private JCheckBox checkBox1;
     private JLabel label2;
     private JLabel label6;
-    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 }
