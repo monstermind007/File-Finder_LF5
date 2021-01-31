@@ -76,12 +76,7 @@ public class new_GUI {
 
     }
 
-    private void button2ActionPerformed(ActionEvent e) {
-        // CODE KOMMT HIER REIN FÜR JASMINS TEIL
-    }
-
-
-    /*
+    // DELETE BUTTON
     private void button2ActionPerformed(ActionEvent e) {
         DefaultListModel model = (DefaultListModel) list3.getModel();
         FILE_PATH = list3.getSelectedValue().toString();
@@ -97,7 +92,11 @@ public class new_GUI {
         File file = new File(new_GUI.getFilePath());
         return file.delete();
     }
-    */
+
+    // RENAME TO .DAMAGED BUTTON
+    private void button3ActionPerformed(ActionEvent e) {
+        // CODE KOMMT HIER REIN FÜR JASMINS TEIL
+    }
 
 
 
