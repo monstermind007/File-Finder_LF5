@@ -1,8 +1,12 @@
-import com.company.ReplaceFileExtension;
 import com.company.Search;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -17,6 +21,13 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author unknown
  */
 public class new_GUI {
+
+    private static String FILE_PATH;
+
+    public static String getFilePath() {
+        return FILE_PATH;
+    }
+
     public static String selectedDirectory;
 
     public static String getSelectedDirectory() {
@@ -39,17 +50,11 @@ public class new_GUI {
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedDirectory = fc.getSelectedFile() +"\\";
 
-                /*
-
-                MICHEL
-
-                 */
-
-
-
-                // List-Panel-Righ
+                // List-Panel-Right
 
                 DefaultListModel Test = new DefaultListModel<>();
+                scrollPane1.setViewportView(list2);
+                panel1.add(scrollPane1);
                 String test = new_GUI.getSelectedDirectory();
                 Search.lookInAll(test, "pdf");
 ///////////////////////////////////////////////////////////
@@ -81,15 +86,19 @@ public class new_GUI {
     }
 
     private void button2ActionPerformed(ActionEvent e) {
-        DefaultListModel model = (DefaultListModel) list2.getModel();
-        int selectedIndex = list2.getSelectedIndex();
-        if (selectedIndex != -1) {
-            model.remove(selectedIndex);
+        DefaultListModel model = (DefaultListModel) list3.getModel();
+        FILE_PATH = list3.getSelectedValue().toString();
+            if (new_GUI.deleteFiles(FILE_PATH)) {
+                System.out.println("File is deleted!");
+            } else {
+                System.err.println("Failed to delete file.");
+            }
+            model.removeElement(FILE_PATH);
         }
-    }
 
-    private void checkBox1ActionPerformed(ActionEvent e) {
-
+    public static boolean deleteFiles(String filePath){
+        File file = new File(new_GUI.getFilePath());
+        return file.delete();
     }
 
 
@@ -101,24 +110,26 @@ public class new_GUI {
         label3 = new JLabel();
         label4 = new JLabel();
         label5 = new JLabel();
-        list2 = new JList();
-        list3 = new JList();
         button1 = new JButton();
         button2 = new JButton();
-        checkBox1 = new JCheckBox();
         label2 = new JLabel();
         label6 = new JLabel();
+        scrollPane1 = new JScrollPane();
+        list2 = new JList();
+        scrollPane2 = new JScrollPane();
+        list3 = new JList();
+        label8 = new JLabel();
+        label9 = new JLabel();
 
         //======== panel1 ========
         {
             panel1.setBackground(new Color(46, 49, 50));
             panel1.setMaximumSize(new Dimension(1006, 523));
-            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
-            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
-            .BOLD ,12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
-            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
+            0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
+            .BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.
+            red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
+            beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}});
 
             //---- label1 ----
             label1.setText("File-Finder");
@@ -142,18 +153,6 @@ public class new_GUI {
             label5.setIcon(new ImageIcon(getClass().getResource("/images/36636378 (2) (1).png")));
             label5.setBackground(new Color(46, 49, 50));
 
-            //---- list2 ----
-            list2.setBorder(new MatteBorder(1, 1, 1, 1, new Color(76, 80, 82)));
-            list2.setForeground(Color.white);
-            list2.setBackground(new Color(46, 49, 50));
-            list2.setFont(new Font("Arial", Font.PLAIN, 11));
-
-            //---- list3 ----
-            list3.setBorder(new MatteBorder(1, 1, 1, 1, new Color(76, 80, 82)));
-            list3.setBackground(new Color(46, 49, 50));
-            list3.setForeground(Color.white);
-            list3.setFont(new Font("Arial", Font.PLAIN, 11));
-
             //---- button1 ----
             button1.setText("Choose File");
             button1.setFont(new Font("Arial", Font.BOLD, 22));
@@ -170,14 +169,6 @@ public class new_GUI {
             button2.setFocusPainted(false);
             button2.addActionListener(e -> button2ActionPerformed(e));
 
-            //---- checkBox1 ----
-            checkBox1.setText("Select All");
-            checkBox1.setFont(new Font("Arial", Font.PLAIN, 20));
-            checkBox1.setBackground(new Color(46, 49, 50));
-            checkBox1.setForeground(Color.white);
-            checkBox1.setFocusPainted(false);
-            checkBox1.addActionListener(e -> checkBox1ActionPerformed(e));
-
             //---- label2 ----
             label2.setText("*Broken files");
             label2.setForeground(Color.white);
@@ -186,43 +177,72 @@ public class new_GUI {
             label6.setText("Working files*");
             label6.setForeground(Color.white);
 
+            //======== scrollPane1 ========
+            {
+                scrollPane1.setBackground(new Color(46, 49, 50));
+
+                //---- list2 ----
+                list2.setBorder(new MatteBorder(1, 1, 1, 1, new Color(76, 80, 82)));
+                list2.setForeground(Color.white);
+                list2.setBackground(new Color(46, 49, 50));
+                list2.setFont(new Font("Arial", Font.PLAIN, 10));
+                scrollPane1.setViewportView(list2);
+            }
+
+            //======== scrollPane2 ========
+            {
+                scrollPane2.setBackground(new Color(46, 49, 50));
+
+                //---- list3 ----
+                list3.setBorder(new MatteBorder(1, 1, 1, 1, new Color(76, 80, 82)));
+                list3.setForeground(Color.white);
+                list3.setBackground(new Color(46, 49, 50));
+                list3.setFont(new Font("Arial", Font.PLAIN, 10));
+                scrollPane2.setViewportView(list3);
+            }
+
+            //---- label8 ----
+            label8.setText("text");
+            label8.setIcon(new ImageIcon(getClass().getResource("/images/39220 (1).png")));
+
+            //---- label9 ----
+            label9.setText("text");
+            label9.setIcon(new ImageIcon(getClass().getResource("/images/39220 (1).png")));
+
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
                 panel1Layout.createParallelGroup()
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(checkBox1, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(button2, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup()
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(356, 356, 356)
-                                .addComponent(label4, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button1, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(label3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(label1, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
-                                .addGap(260, 260, 260)))
+                        .addComponent(label3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label1, GroupLayout.PREFERRED_SIZE, 255, GroupLayout.PREFERRED_SIZE)
+                        .addGap(260, 260, 260)
                         .addComponent(label5, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup()
-                            .addComponent(list3, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label2))
+                        .addComponent(label2)
+                        .addGap(70, 70, 70)
+                        .addComponent(label9, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup()
                             .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addComponent(label4, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(list2, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE))
-                            .addGroup(GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addComponent(button1, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(button2, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(label6)
-                                .addContainerGap())))
+                                .addComponent(label6)))
+                        .addContainerGap())
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
             );
             panel1Layout.setVerticalGroup(
                 panel1Layout.createParallelGroup()
@@ -232,22 +252,21 @@ public class new_GUI {
                             .addComponent(label3)
                             .addComponent(label5)
                             .addComponent(label1))
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label4)
                             .addComponent(button1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(button2)
-                            .addComponent(checkBox1))
-                        .addGap(1, 1, 1)
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(label2)
-                            .addComponent(label6))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addComponent(label6)
+                            .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(button2)
+                                .addComponent(label9))
+                            .addComponent(label2))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup()
-                            .addComponent(list3, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(list2, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 300, GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
             );
         }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -255,18 +274,21 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    public JPanel panel1;
+    JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;
     private JLabel label5;
-    private JList list2;
-    private JList list3;
     private JButton button1;
     private JButton button2;
-    private JCheckBox checkBox1;
     private JLabel label2;
     private JLabel label6;
+    private JScrollPane scrollPane1;
+    private JList list2;
+    private JScrollPane scrollPane2;
+    private JList list3;
+    private JLabel label8;
+    private JLabel label9;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 }
