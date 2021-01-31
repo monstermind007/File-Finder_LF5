@@ -74,7 +74,7 @@ public class new_GUI {
                 }
                 Search.PathArrayDamaged.clear();
 ///////////////////////////////////////////////////////////
-                list3.setModel(Test);
+                list3.setModel(Test12);
             }
             //ReplaceFileExtension.renameDamaged("C:\\Users\\Monstermind007\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
 
