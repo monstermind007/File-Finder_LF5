@@ -19,7 +19,7 @@ public class ReplaceFileExtension {
     public static void renameDamaged(){
         Gson gson = new Gson();
         try {
-            FileInputStream input = new FileInputStream("C:\\Users\\Monstermind007\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json");
+            FileInputStream input = new FileInputStream("C:\\Users\\kaiha_wo2fl1k\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json");
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
             JsonObject json = gson.fromJson(reader, JsonObject.class);
             JsonArray personen = json.getAsJsonArray("einträge");
@@ -28,7 +28,7 @@ public class ReplaceFileExtension {
                 for (int k = 0; true; k = k + 1) {
                     String defekterPfad = person.get(String.valueOf(k)).getAsString();
                     System.out.println("Defekte Datei "+k+":   "+defekterPfad);
-                    ReplaceFileExtension.renameFileExtension(defekterPfad, "testObjekt");
+                    ReplaceFileExtension.renameFileExtension(defekterPfad, "##");
                 }
             } catch (Exception e) {
                 //System.out.println("End");
