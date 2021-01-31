@@ -11,14 +11,17 @@ import java.util.ArrayList;
 public class Search {
 
     public static int hi;
-    public static String[] PathArray = new String[200];
+    ///////////////////////////////////////////////////////////
+//Michel
+    public static ArrayList<String> PathArray = new ArrayList<String>();
+    public static ArrayList<String> PathArrayDamaged = new ArrayList<String>();
 
+    ///////////////////////////////////////////////////////////
     public static void lookInAll(String path, String type) {
         JSONObject pfade = new JSONObject();
         JSONObject main = new JSONObject();
-        if(path.endsWith(type)){
-            allOut(path);
-        }else{
+        if (path.endsWith(type)) {
+        } else {
             ArrayList<File> files = getPaths(new File(path),
                     new ArrayList<>());
 
@@ -30,17 +33,19 @@ public class Search {
                     //boolean result = Files.isHidden(Path.of(h)); // schaut ob es sich um eine versteckten Datei handelt, wird jedoch nicht verwendet
 
                     if (h.endsWith(type)) {
+///////////////////////////////////////////////////////////
+//Michel
                         String pfad = file.getCanonicalPath();
                         boolean damage = Check.damaged(pfad);
                         if (damage) {
-
                             pfade.put(String.valueOf(id), pfad);
+                            PathArrayDamaged.add(pfad);
                             id++;
-
+                        } else {
+                            PathArray.add(pfad);
                         }
                         hi++;
-                        PathArray[hi] = file.getCanonicalPath();
-                        allOut(file.getCanonicalPath());
+///////////////////////////////////////////////////////////
                     }
                 }
             } catch (IOException e) {
@@ -48,6 +53,8 @@ public class Search {
                 System.out.println("Fehler 1");
             }
         }
+///////////////////////////////////////////////////////////
+//Michel
         JSONArray listenName = new JSONArray();
         listenName.put(pfade);
         main.put("einträge", listenName);
@@ -60,14 +67,14 @@ public class Search {
         }
 
     }
+///////////////////////////////////////////////////////////
 
-
-    private static ArrayList < File > getPaths(File file, ArrayList < File > list) {
+    private static ArrayList<File> getPaths(File file, ArrayList<File> list) {
         if (file == null || list == null || !file.isDirectory())
             return null;
         File[] fileArr = file.listFiles();
         assert fileArr != null;
-        for (File f: fileArr) {
+        for (File f : fileArr) {
             try {
                 if (f.isDirectory()) { // try exept testen
                     getPaths(f, list);
@@ -80,18 +87,4 @@ public class Search {
         }
         return list;
     }
-
-
-
-    public static String allOut(String path) {
-        System.out.println(hi + "---" + path);
-        System.out.println(Check.damaged(path));
-        return path;
-    }
-
-
-    public static String[] getArray(){
-        return PathArray;
-    }
-
 }

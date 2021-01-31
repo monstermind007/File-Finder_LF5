@@ -52,19 +52,31 @@ public class new_GUI {
                 DefaultListModel Test = new DefaultListModel<>();
                 String test = new_GUI.getSelectedDirectory();
                 Search.lookInAll(test, "pdf");
-                for (int k = 0; k < Search.PathArray.length; k++){
-                    Test.addElement(Search.PathArray[k]);
+///////////////////////////////////////////////////////////
+//Michel
+                for (int k = 0; k < Search.PathArray.size(); k++){
+                    Test.addElement(Search.PathArray.get(k));
+                    System.out.println("Working:  "+Search.PathArray.get(k));
                 }
+                Search.PathArray.clear();
+///////////////////////////////////////////////////////////
                 list2.setModel(Test);
 
-                // List-Panel-Left
-                /*
-                DefaultListModel Test = new DefaultListModel<>();
-                Test.addElement(Search.hi);
-                list2.setModel(Test); */
 
+                // List-Panel-Left
+
+                DefaultListModel Test12 = new DefaultListModel<>();
+///////////////////////////////////////////////////////////
+//Michel
+                for (int l = 0; l < Search.PathArrayDamaged.size(); l++){
+                    Test12.addElement(Search.PathArrayDamaged.get(l));
+                    System.out.println("Damaged:  "+Search.PathArrayDamaged.get(l));
+                }
+                Search.PathArrayDamaged.clear();
+///////////////////////////////////////////////////////////
+                list3.setModel(Test);
             }
-            ReplaceFileExtension.renameDamaged("C:\\Users\\Monstermind007\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
+            //ReplaceFileExtension.renameDamaged("C:\\Users\\Monstermind007\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
 
     }
 
