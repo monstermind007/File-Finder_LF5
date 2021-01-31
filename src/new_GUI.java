@@ -51,40 +51,37 @@ public class new_GUI {
                 selectedDirectory = fc.getSelectedFile() +"\\";
 
                 // List-Panel-Right
-
-                DefaultListModel Test = new DefaultListModel<>();
+                DefaultListModel panelR = new DefaultListModel<>();
                 scrollPane1.setViewportView(list2);
                 panel1.add(scrollPane1);
                 String test = new_GUI.getSelectedDirectory();
                 Search.lookInAll(test, "pdf");
-///////////////////////////////////////////////////////////
-//Michel
                 for (int k = 0; k < Search.PathArray.size(); k++){
-                    Test.addElement(Search.PathArray.get(k));
+                    panelR.addElement(Search.PathArray.get(k));
                     System.out.println("Working:  "+Search.PathArray.get(k));
                 }
                 Search.PathArray.clear();
-///////////////////////////////////////////////////////////
-                list2.setModel(Test);
+                list2.setModel(panelR);
 
 
                 // List-Panel-Left
-
-                DefaultListModel Test12 = new DefaultListModel<>();
-///////////////////////////////////////////////////////////
-//Michel
+                DefaultListModel panelL = new DefaultListModel<>();
                 for (int l = 0; l < Search.PathArrayDamaged.size(); l++){
-                    Test12.addElement(Search.PathArrayDamaged.get(l));
+                    panelL.addElement(Search.PathArrayDamaged.get(l));
                     System.out.println("Damaged:  "+Search.PathArrayDamaged.get(l));
                 }
                 Search.PathArrayDamaged.clear();
-///////////////////////////////////////////////////////////
-                list3.setModel(Test12);
+                list3.setModel(panelL);
             }
-            //ReplaceFileExtension.renameDamaged("C:\\Users\\Monstermind007\\IdeaProjects\\File-Finder_LF5\\Beschädigt.json", "testObjektCustom");
 
     }
 
+    private void button2ActionPerformed(ActionEvent e) {
+        // CODE KOMMT HIER REIN FÜR JASMINS TEIL
+    }
+
+
+    /*
     private void button2ActionPerformed(ActionEvent e) {
         DefaultListModel model = (DefaultListModel) list3.getModel();
         FILE_PATH = list3.getSelectedValue().toString();
@@ -100,6 +97,8 @@ public class new_GUI {
         File file = new File(new_GUI.getFilePath());
         return file.delete();
     }
+    */
+
 
 
     private void initComponents() {
@@ -120,16 +119,18 @@ public class new_GUI {
         list3 = new JList();
         label8 = new JLabel();
         label9 = new JLabel();
+        button3 = new JButton();
 
         //======== panel1 ========
         {
             panel1.setBackground(new Color(46, 49, 50));
             panel1.setMaximumSize(new Dimension(1006, 523));
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-            0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
-            .BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.
-            red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
-            beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}});
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
+            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
+            .BOLD ,12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (
+            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
+            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
 
             //---- label1 ----
             label1.setText("File-Finder");
@@ -209,6 +210,14 @@ public class new_GUI {
             label9.setText("text");
             label9.setIcon(new ImageIcon(getClass().getResource("/images/39220 (1).png")));
 
+            //---- button3 ----
+            button3.setText("Rename to .damaged");
+            button3.setFont(new Font("Arial", Font.PLAIN, 20));
+            button3.setBackground(new Color(76, 80, 82));
+            button3.setForeground(Color.white);
+            button3.setFocusPainted(false);
+            button3.addActionListener(e -> button2ActionPerformed(e));
+
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
@@ -222,18 +231,20 @@ public class new_GUI {
                         .addGap(6, 6, 6))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(label2)
-                        .addGap(70, 70, 70)
-                        .addComponent(label9, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel1Layout.createParallelGroup()
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(170, 170, 170)
+                                .addGap(296, 296, 296)
                                 .addComponent(label4, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(button1, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panel1Layout.createSequentialGroup()
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(label9, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(button2, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(button3, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(label6)))
                         .addContainerGap())
@@ -259,8 +270,9 @@ public class new_GUI {
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                             .addComponent(label6)
                             .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(label9)
                                 .addComponent(button2)
-                                .addComponent(label9))
+                                .addComponent(button3))
                             .addComponent(label2))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup()
@@ -274,7 +286,7 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    JPanel panel1;
+    private JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;
@@ -289,6 +301,7 @@ public class new_GUI {
     private JList list3;
     private JLabel label8;
     private JLabel label9;
+    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 }
