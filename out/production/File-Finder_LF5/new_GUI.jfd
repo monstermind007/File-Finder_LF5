@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:109:p, comp checkBox1:::p:116:p, space :p:33:p, comp button2:::p:114:p, space :::x}, seq {par l {seq l {space :p:356:p, comp label4:::p:50:p, space :::p, comp button1:::p:187:p, space ::301:x}, seq l {comp label3:::p:100:p, space :::x, comp label1:::p:255:p, space :p:260:p}}, comp label5:::p:100:p, space :6:6:p}, seq {par l {comp list3::l:p:500:p, comp label2::l:p::p}, par l {seq {space :::p, comp list2:::p:500:p}, seq t {space :::x, comp label6:::p::p, space :::p}}}}"
-			"$verticalGroup": "par l {seq l {space :p::p, par b {comp label3::b:p::p, comp label5::b:p::p, comp label1::b:p::p}, space :p::p, par b {comp label4::b:p::p, comp button1::b:p:50:p}, space :p:13:p, par b {comp button2::b:p::p, comp checkBox1::b:p::p}, space :p:1:p, par b {comp label2::b:p::p, comp label6::b:p::p}, space :p::p, par l {comp list3:::p:300:p, comp list2:::p:300:p}}}"
+			"$horizontalGroup": "par l {seq {comp label3:::p:100:p, space :::x, comp label1:::p:255:p, space :p:260:p, comp label5:::p:100:p, space :6:6:p}, seq {comp label2:::p::p, par l {seq l {space :p:296:p, comp label4:::p:50:p, space :::p, comp button1:::p:187:p, space :0:0:x}, seq l {space :::p, comp label9:::p:50:p, space :::p, comp button2:::p:114:p, space :::p, comp button3:::p:267:p, space :::x, comp label6:::p::p}}, space :::p}, seq {space :0:0:x, comp scrollPane2:::p:500:p, space :::p, comp scrollPane1:::p:500:p, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :p::p, par b {comp label3::b:p::p, comp label5::b:p::p, comp label1::b:p::p}, par b {comp label4::b:p::p, comp button1::b:p:50:p}, space :::p, par t {comp label6:::p::p, par b {comp label9::b:p::p, comp button2::b:p::p, comp button3::b:p::p}, comp label2:::p::p}, space u:::p, par l {comp scrollPane1:::p:300:p, comp scrollPane2::l:p:300:p}, space :p:14:p}}"
 		} ) {
 			name: "panel1"
 			"background": new java.awt.Color( 46, 49, 50, 255 )
@@ -36,20 +36,6 @@ new FormModel {
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/36636378 (2) (1).png" )
 				"background": new java.awt.Color( 46, 49, 50, 255 )
 			} )
-			add( new FormComponent( "javax.swing.JList" ) {
-				name: "list2"
-				"border": new javax.swing.border.MatteBorder( 1, 1, 1, 1, new java.awt.Color( 76, 80, 82, 255 ) )
-				"foreground": sfield java.awt.Color white
-				"background": new java.awt.Color( 46, 49, 50, 255 )
-				"font": new java.awt.Font( "Arial", 0, 11 )
-			} )
-			add( new FormComponent( "javax.swing.JList" ) {
-				name: "list3"
-				"border": new javax.swing.border.MatteBorder( 1, 1, 1, 1, new java.awt.Color( 76, 80, 82, 255 ) )
-				"background": new java.awt.Color( 46, 49, 50, 255 )
-				"foreground": new java.awt.Color( 255, 255, 255, 255 )
-				"font": new java.awt.Font( "Arial", 0, 11 )
-			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Choose File"
@@ -62,20 +48,11 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Delete"
-				"font": new java.awt.Font( "Arial", 0, 20 )
-				"background": new java.awt.Color( 76, 80, 82, 255 )
-				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"font": &Font0 new java.awt.Font( "Arial", 0, 20 )
+				"background": &Color0 new java.awt.Color( 76, 80, 82, 255 )
+				"foreground": &Color1 new java.awt.Color( 255, 255, 255, 255 )
 				"focusPainted": false
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
-			} )
-			add( new FormComponent( "javax.swing.JCheckBox" ) {
-				name: "checkBox1"
-				"text": "Select All"
-				"font": new java.awt.Font( "Arial", 0, 20 )
-				"background": new java.awt.Color( 46, 49, 50, 255 )
-				"foreground": new java.awt.Color( 255, 255, 255, 255 )
-				"focusPainted": false
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "checkBox1ActionPerformed", true ) )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -86,6 +63,49 @@ new FormModel {
 				name: "label6"
 				"text": "Working files*"
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				"background": &Color2 new java.awt.Color( 46, 49, 50, 255 )
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list2"
+					"border": &MatteBorder0 new javax.swing.border.MatteBorder( 1, 1, 1, 1, new java.awt.Color( 76, 80, 82, 255 ) )
+					"foreground": sfield java.awt.Color white
+					"background": &Color3 new java.awt.Color( 46, 49, 50, 255 )
+					"font": new java.awt.Font( "Arial", 0, 10 )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				"background": #Color2
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list3"
+					"border": #MatteBorder0
+					"foreground": sfield java.awt.Color white
+					"background": #Color3
+					"font": new java.awt.Font( "Arial", 0, 10 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "text"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/39220 (1).png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "text"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/39220 (1).png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Rename all to .damaged"
+				"font": #Font0
+				"background": #Color0
+				"foreground": #Color1
+				"focusPainted": false
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

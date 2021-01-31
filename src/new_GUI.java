@@ -97,7 +97,6 @@ public class new_GUI {
     // RENAME TO .DAMAGED BUTTON
     private void button3ActionPerformed(ActionEvent e) {
         ReplaceFileExtension.renameDamaged("Beschädigt.json","damaged");
-
     }
 
 
@@ -126,12 +125,12 @@ public class new_GUI {
         {
             panel1.setBackground(new Color(46, 49, 50));
             panel1.setMaximumSize(new Dimension(1006, 523));
-            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-            border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
-            , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
-            .BOLD ,12 ), java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
-            .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+            panel1.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+            EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing
+            . border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ),
+            java. awt. Color. red) ,panel1. getBorder( )) ); panel1. addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+            { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () ))
+            throw new RuntimeException( ); }} );
 
             //---- label1 ----
             label1.setText("File-Finder");
@@ -212,7 +211,7 @@ public class new_GUI {
             label9.setIcon(new ImageIcon(getClass().getResource("/images/39220 (1).png")));
 
             //---- button3 ----
-            button3.setText("Rename to .damaged");
+            button3.setText("Rename all to .damaged");
             button3.setFont(new Font("Arial", Font.PLAIN, 20));
             button3.setBackground(new Color(76, 80, 82));
             button3.setForeground(Color.white);
@@ -244,12 +243,12 @@ public class new_GUI {
                                 .addComponent(button1, GroupLayout.PREFERRED_SIZE, 187, GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(label9, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(button2, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(button3)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(button3, GroupLayout.PREFERRED_SIZE, 267, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(label6)))
                         .addContainerGap())
