@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {comp label3:::p:100:p, space :::x, comp label1:::p:255:p, space :p:260:p, comp label5:::p:100:p, space :6:6:p}, seq {comp label2:::p::p, par l {seq l {space :p:296:p, comp label4:::p:50:p, space :::p, comp button1:::p:187:p, space :0:0:x}, seq l {space u:::p, comp label9:::p:50:p, space :::p, comp button2:::p:114:p, space s:::p, comp button3:::p:210:p, space :::x, comp label6:::p::p}}, space :::p}, seq {space :0:0:x, comp scrollPane2:::p:500:p, space :::p, comp scrollPane1:::p:500:p, space :::p}}"
+			"$horizontalGroup": "par l {seq {comp label3:::p:100:p, space :::x, comp label1:::p:255:p, space :p:260:p, comp label5:::p:100:p, space :6:6:p}, seq {comp label2:::p::p, par l {seq l {space :p:296:p, comp label4:::p:50:p, space :::p, comp button1:::p:187:p, space :0:0:x}, seq l {space u:::p, comp label9:::p:50:p, space :::p, comp button2:::p:114:p, space u:::p, comp button3:::p::p, space :::x, comp label6:::p::p}}, space :::p}, seq {space :0:0:x, comp scrollPane2:::p:500:p, space :::p, comp scrollPane1:::p:500:p, space :::p}}"
 			"$verticalGroup": "par l {seq l {space :p::p, par b {comp label3::b:p::p, comp label5::b:p::p, comp label1::b:p::p}, par b {comp label4::b:p::p, comp button1::b:p:50:p}, space :::p, par t {comp label6:::p::p, par b {comp label9::b:p::p, comp button2::b:p::p, comp button3::b:p::p}, comp label2:::p::p}, space u:::p, par l {comp scrollPane1:::p:300:p, comp scrollPane2::l:p:300:p}, space :p:14:p}}"
 		} ) {
 			name: "panel1"
@@ -104,6 +104,8 @@ new FormModel {
 				"foreground": #Color1
 				"focusPainted": false
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

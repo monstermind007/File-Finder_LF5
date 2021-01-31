@@ -1,3 +1,4 @@
+import com.company.ReplaceFileExtension;
 import com.company.Search;
 
 import java.awt.*;
@@ -95,7 +96,8 @@ public class new_GUI {
 
     // RENAME TO .DAMAGED BUTTON
     private void button3ActionPerformed(ActionEvent e) {
-        // CODE KOMMT HIER REIN FÜR JASMINS TEIL
+        ReplaceFileExtension.renameDamaged("Beschädigt.json","damaged");
+
     }
 
 
@@ -215,7 +217,11 @@ public class new_GUI {
             button3.setBackground(new Color(76, 80, 82));
             button3.setForeground(Color.white);
             button3.setFocusPainted(false);
-            button3.addActionListener(e -> button2ActionPerformed(e));
+            button3.addActionListener(e -> {
+			button2ActionPerformed(e);
+			button3ActionPerformed(e);
+			button3ActionPerformed(e);
+		});
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
@@ -242,8 +248,8 @@ public class new_GUI {
                                 .addComponent(label9, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(button2, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(button3, GroupLayout.PREFERRED_SIZE, 210, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(button3)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(label6)))
                         .addContainerGap())
@@ -285,7 +291,7 @@ public class new_GUI {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Kai Jakob Hartwich
-    private JPanel panel1;
+    JPanel panel1;
     private JLabel label1;
     private JLabel label3;
     private JLabel label4;
